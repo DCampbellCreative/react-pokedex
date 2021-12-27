@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getData } from "../api";
+import './MainView.css';
 
-// get pokemon data from api
-export const getData = () => {
-	return fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
-		.then((response) => response.json())
-		.then((pokemon) => console.log(pokemon));
-}
+export const MainView = (props) => {
+	const [pokemon, setPokemon] = useState([]);
+	const capitalizeFirstLetter = (string) => {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
 
-const drawItems = () => {
-	getData().map(() => (
-		<button>{pokemon.name}</button>
-	))
-}
+	useEffect(() => {
+		getData().then((pokemon) => {
+			setPokemon(pokemon);
+			console.log(Object.entries(pokemon)[3][1]);
+		})
+	}, []);
 
-export const MainView = () => {
 	return (
-		<div>
-			{getData()}
+		<div className="pokemonList">
+			{Object.entries(pokemon)[3] && Object.entries(pokemon)[3][1].map((pokemon, index) => {
+				return <button key={index}>{index + 1}: {capitalizeFirstLetter(pokemon.name)}</button>
+			})}
 		</div>
 	);
 }
