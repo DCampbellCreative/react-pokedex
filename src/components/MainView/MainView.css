@@ -1,7 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;500;700&display=swap');
+
+body {
+	font-family: 'Source Code Pro', monospace;
+}
+
 .pokemonList {
 	display: block;
+	list-style: none;
+	text-align: left;
+	overflow: scroll;
+	height: 1500px;
 }
 
 button {
+	position: relative;
+	width: 250px;
+	height: 60px;
+	margin: 10px;
+	padding: 5px;
+}
+
+.buttonContent {
+	/* border: 1px solid black; */
+	position: absolute;
+	top: -17px;
+	left: 10px;
 	font-size: 20px;
+	font-family: 'Source Code Pro', monospace;
+	font-weight: '200';
+}
+
+img {
+	vertical-align: middle;
+	margin-left: 5px;
+	width: 50px;
+	height: 50px;
 }
