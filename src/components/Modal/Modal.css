@@ -1,10 +1,9 @@
 .modal {
-	position: fixed;
+	position: absolute;
 	left: 225px;
-	top: -195px;
+	top: -245px;
 	right: 0;
 	bottom: 0;
-	background-color: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;	
@@ -15,8 +14,8 @@
 	height: 500px;
 	background-color: white;
 	border: 1px solid black;
-	align-items: center;
-	justify-content: center;	
+	text-align: center;
+	text-transform: capitalize;
 }
 
 .modal-header, .modal-footer {
@@ -26,10 +25,21 @@
 
 .modal-title {
 	margin: 0;
+	text-transform: capitalize;
 }
 
 .modal-body {
 	padding: 10px;
 	border-top: 1px solid #eee;
 	border-bottom: 1px solid #eee;
+}
+
+.pokemon-img {
+	width: 200px;
+	height: 200px;
+	padding-left: 40px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+
 }

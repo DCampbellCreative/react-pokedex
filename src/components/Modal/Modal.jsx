@@ -2,33 +2,38 @@ import React, { useState, useEffect } from 'react';
 import './Modal.css';
 import { getDetails } from '../api';
 
-export const Modal = (props) => {
-	const [pokemon, setPokemon] = useState([]);
+export const Modal = ({ onClose, selectedPokemon, show }) => {
+	const [pokemon, setPokemon] = useState();
 
 	useEffect(() => {
-		getDetails(pokemon.id).then((data) => {
-			setPokemon(data);
-			console.log(pokemon.id);
-		})
-	}, []);
-
-	if (!props.show) {
-		return null
-	}
+		if (selectedPokemon) {
+			getDetails(selectedPokemon.url).then((data) => {
+				setPokemon(data);
+				console.log(data);
+			})
+		}
+	}, [selectedPokemon]);
 
 	return (
-		<div className='modal' onClick={props.onClose}>
+		<div className='modal' onClick={onClose}>
 			<div className='modal-content' onClick={e => e.stopPropagation()}>
 				<div className='modal-header'>
-					<h4 className='modal-title'>
-						title
-					</h4>
+					<h3 className='modal-title'>
+						{pokemon?.name}
+					</h3>
 				</div>
 				<div className='modal-body'>
-					content
+					<div className='pokemon-img'>
+						<img src={pokemon?.sprites.front_default} alt={pokemon?.name} style={{ width: '200px', height: '200px' }} />
+						<img src={pokemon?.sprites.back_default} alt={pokemon?.name} style={{ width: '200px', height: '200px' }} />
+					</div>
+					<div className='pokemon-info'>
+						<p>Height: {pokemon?.height}</p>
+						<p>Type: {pokemon?.types.map((type) => type.type.name).join(", ")}</p>
+					</div>
 				</div>
 				<div className='modal-footer'>
-					<button className='button' onClick={props.onClose}>Close</button>
+					<button className='button' onClick={onClose}>Close</button>
 				</div>
 			</div>
 		</div>

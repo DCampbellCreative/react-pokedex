@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'normalize.css';
 import './App.css';
-
 
 import { MainView } from './components/MainView/MainView'
 
 function App() {
-
   return (
     <div className="App">
-      <h1>Pokédex</h1>
+      <h1 className='header'>Pokédex</h1>
       <MainView />
     </div>
   );

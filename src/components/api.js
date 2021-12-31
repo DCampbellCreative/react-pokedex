@@ -5,8 +5,7 @@ export const getData = async () => {
 }
 
 // get detailed pokemon data from api
-export const getDetails = async (pokeId) => {
-	const URL = 'https://pokeapi.co/api/v2/pokemon';
-	const response = await fetch(`${URL}/${pokeId}`);
-	return response();
+export const getDetails = async (pokeUrl) => {
+	// const URL = 'https://pokeapi.co/api/v2/pokemon';
+	return fetch(`${pokeUrl}`).then((response) => response.json());
 }
