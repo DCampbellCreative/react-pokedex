@@ -5,6 +5,7 @@ import './MainView.css';
 
 export const MainView = (props) => {
 	const [pokemonList, setPokemonList] = useState([]);
+	const [filteredPokemonList, setFilteredPokemonList] = useState([]);
 	const [selectedPokemon, setSelectedPokemon] = useState();
 	const [show, setShow] = useState(false);
 	const [searchTerm, setSearchTerm] = useState('');
@@ -12,18 +13,38 @@ export const MainView = (props) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
-	//gets list of pokemon from api
+	// //gets list of pokemon from api
+	// useEffect(() => {
+	// 	getData().then((pokemonList) => {
+	// 		setPokemonList(pokemonList.results)
+	// 		console.log(pokemonList)
+	// 	})
+	// }, []);
+
 	useEffect(() => {
+		// to prevent loading the list at each re-render
+		// if (!pokemonList) {
+
 		getData().then((pokemonList) => {
 			setPokemonList(pokemonList.results)
-			console.log(pokemonList)
+			setFilteredPokemonList(filteredPokemonList.results)
+			console.log(filteredPokemonList)
 		})
-	}, []);
+		// }
+	}, [])
 
 	//search for pokemon by name
-	const handleSearch = (event) => {
-		setSearchTerm(event.target.value);
-		console.log(searchTerm);
+	// const handleSearch = (event) => {
+	// 	setSearchTerm(event.target.value);
+	// 	setFilteredPokemonList()
+	// 	console.log(searchTerm);
+	// }
+
+	const updateFilter = (value) => {
+		const res = pokemonList.filter(pokemon => pokemon.name.includes(value))
+		setSearchTerm(value)
+		setFilteredPokemonList(res)
+		console.log(value)
 	}
 
 	return (
@@ -34,18 +55,18 @@ export const MainView = (props) => {
 			<div className='search-container'>
 				<div className='search-bar'>
 					<label htmlFor='search'>Search: </label>
-					<input id='search' type='text' onChange={handleSearch} />
+					<input id='search' type='text' onChange={(e) => updateFilter(e.target.value)} />
 				</div>
 			</div>
 			<div className="pokemon-list">
 				{pokemonList?.length > 0 && pokemonList?.filter((pokemon) => {
 					if (searchTerm === "") {
-						return pokemon
+						return pokemonList
 					} else if (pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-						return pokemon
+						return filteredPokemonList
 					}
 				}).map((pokemon, index) => {
-					return <li key={index}>
+					return <li key={pokemon.name}>
 						<button onClick={() => {
 							setShow(true)
 							setSelectedPokemon(pokemon)
