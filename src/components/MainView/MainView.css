@@ -1,15 +1,43 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;500;700&display=swap');
+.container {
+	display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-gap: 1rem;
+}
 
-body {
-	font-family: 'Source Code Pro', monospace;
-} */
+.header {
+	grid-row-start: 0;
+	grid-column-start: 4;
+	font-weight: 500;
+	font-size: 25px;	
+}
 
-.pokemonList {
-	display: block;
+.title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-container {
+	grid-row-start: 2;
+	grid-column-start: 4;
+}
+
+.search-bar {
+	font-size: 20px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	/* border-bottom: 5px solid black; */
+}
+
+.pokemon-list {
+	grid-row-start: 3;
+	grid-column-start: 2;
+	grid-column-end: 7;
 	list-style: none;
 	text-align: left;
 	overflow: scroll;
-	max-height: 100vh;
+	max-height: 75vh;
 }
 
 button {
@@ -20,7 +48,7 @@ button {
 	padding: 5px;
 }
 
-.buttonContent {
+.button-content {
 	/* border: 1px solid black; */
 	position: absolute;
 	top: -17px;
@@ -30,7 +58,7 @@ button {
 	font-weight: '200';
 }
 
-img {
+.button-img {
 	vertical-align: middle;
 	margin-left: 5px;
 	width: 50px;

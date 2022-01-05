@@ -5,6 +5,7 @@ import { getDetails } from '../api';
 export const Modal = ({ onClose, selectedPokemon, show }) => {
 	const [pokemon, setPokemon] = useState();
 
+	// gets details for each pokemon when selected
 	useEffect(() => {
 		if (selectedPokemon) {
 			getDetails(selectedPokemon.url).then((data) => {

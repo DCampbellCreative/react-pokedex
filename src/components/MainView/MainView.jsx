@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Search } from '../Search/Search'
 import { Modal } from '../Modal/Modal';
 import { getData } from '../api';
 import './MainView.css';
@@ -19,18 +18,26 @@ export const MainView = (props) => {
 			setPokemonList(pokemonList.results)
 			console.log(pokemonList)
 		})
-
 	}, []);
 
+	//search for pokemon by name
 	const handleSearch = (event) => {
 		setSearchTerm(event.target.value);
 		console.log(searchTerm);
 	}
 
 	return (
-		<div>
-			<Search onSearch={handleSearch} />
-			<div className="pokemonList">
+		<div className='container'>
+			<div className='header'>
+				<h1 className='title'>Pokédex</h1>
+			</div>
+			<div className='search-container'>
+				<div className='search-bar'>
+					<label htmlFor='search'>Search: </label>
+					<input id='search' type='text' onChange={handleSearch} />
+				</div>
+			</div>
+			<div className="pokemon-list">
 				{pokemonList?.length > 0 && pokemonList?.filter((pokemon) => {
 					if (searchTerm === "") {
 						return pokemon
@@ -43,10 +50,11 @@ export const MainView = (props) => {
 							setShow(true)
 							setSelectedPokemon(pokemon)
 						}}>
-							<p className='buttonContent'>
+							<p className='button-content'>
 								{index + 1}: {capitalizeFirstLetter(pokemon.name)}
 								<img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
 									alt='pokemon'
+									className='button-img'
 								>
 								</img>
 							</p>

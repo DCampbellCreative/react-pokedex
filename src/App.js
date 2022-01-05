@@ -7,7 +7,6 @@ import { MainView } from './components/MainView/MainView'
 function App() {
   return (
     <div className="App">
-      <h1 className='header'>Pokédex</h1>
       <MainView />
     </div>
   );
