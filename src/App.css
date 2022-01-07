@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;500;700&display=swap');
 
+.container {
+	display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-gap: 1rem;
+}
+
+
 body {
 	font-family: 'Source Code Pro', monospace;
 }

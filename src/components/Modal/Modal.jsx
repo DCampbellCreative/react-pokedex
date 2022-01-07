@@ -34,7 +34,7 @@ export const Modal = ({ onClose, selectedPokemon, show }) => {
 					</div>
 				</div>
 				<div className='modal-footer'>
-					<button className='button' onClick={onClose}>Close</button>
+					<button className='close-button' onClick={onClose}>Close</button>
 				</div>
 			</div>
 		</div>

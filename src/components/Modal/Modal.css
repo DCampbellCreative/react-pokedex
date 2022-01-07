@@ -1,20 +1,31 @@
+.modal-container {
+	display: grid;
+	grid-row-start: 3;
+	grid-column-start: 4;
+}
+
 .modal {
-	position: absolute;
-	left: 150px;
-	top: 20px;
+	/* position: float; */
+	/* left: 500px;
+	top: 195px;
 	right: 0;
-	bottom: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;	
+	bottom: 0; */
+	height: 500px;
+	width: 500px;
+	
+	/* display: grid;
+	grid-row-start: 2;
+	grid-column-start: 5; */
+	/* display: flex; */
+	/* align-items: center;
+	justify-content: center;	 */
 }
 
 .modal-content {
-	width: 500px;
-	height: 500px;
 	background-color: white;
 	border: 1px solid black;
 	text-align: center;
+	justify-content: center;
 	text-transform: capitalize;
 }
 
@@ -41,5 +52,11 @@
 	display: flex;
 	align-items: center;
 	text-align: center;
-
 }
+
+.close-button {
+	height: 50px
+}
+/* .modal-footer{
+	height: 50px;
+} */

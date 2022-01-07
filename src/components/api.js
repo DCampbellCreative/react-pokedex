@@ -1,6 +1,6 @@
 // get pokemon data from api
 export const getData = async () => {
-	const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=151');
+	const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=251');
 	return await response.json();
 }
 

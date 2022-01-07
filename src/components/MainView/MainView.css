@@ -1,8 +1,4 @@
-.container {
-	display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  grid-gap: 1rem;
-}
+
 
 .header {
 	grid-row-start: 0;
@@ -20,6 +16,7 @@
 .search-container {
 	grid-row-start: 2;
 	grid-column-start: 4;
+	margin-bottom: 25px;
 }
 
 .search-bar {
@@ -33,7 +30,7 @@
 .pokemon-list {
 	grid-row-start: 3;
 	grid-column-start: 2;
-	grid-column-end: 7;
+	grid-column-end: 4;
 	list-style: none;
 	text-align: left;
 	overflow: scroll;

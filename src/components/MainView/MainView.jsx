@@ -23,14 +23,14 @@ export const MainView = (props) => {
 
 	useEffect(() => {
 		// to prevent loading the list at each re-render
-		// if (!pokemonList) {
+		if (!pokemonList < 1) {
 
-		getData().then((pokemonList) => {
-			setPokemonList(pokemonList.results)
-			setFilteredPokemonList(filteredPokemonList.results)
-			console.log(filteredPokemonList)
-		})
-		// }
+			getData().then(({ results }) => {
+				setPokemonList(results)
+				setFilteredPokemonList(results)
+				console.log(filteredPokemonList)
+			})
+		}
 	}, [])
 
 	//search for pokemon by name
@@ -55,25 +55,26 @@ export const MainView = (props) => {
 			<div className='search-container'>
 				<div className='search-bar'>
 					<label htmlFor='search'>Search: </label>
-					<input id='search' type='text' onChange={(e) => updateFilter(e.target.value)} />
+					<input id='search' type='text' onChange={(e) => updateFilter((e.target.value.toLowerCase()))} />
 				</div>
 			</div>
 			<div className="pokemon-list">
-				{pokemonList?.length > 0 && pokemonList?.filter((pokemon) => {
+				{/* {pokemonList?.length > 0 && pokemonList?.filter((pokemon) => {
 					if (searchTerm === "") {
 						return pokemonList
 					} else if (pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())) {
 						return filteredPokemonList
-					}
-				}).map((pokemon, index) => {
+					} */}
+				{filteredPokemonList.map((pokemon) => {
+					const id = pokemon.url.slice(34).split('/')[0]
 					return <li key={pokemon.name}>
 						<button onClick={() => {
 							setShow(true)
 							setSelectedPokemon(pokemon)
 						}}>
 							<p className='button-content'>
-								{index + 1}: {capitalizeFirstLetter(pokemon.name)}
-								<img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
+								{id}: {capitalizeFirstLetter(pokemon.name)}
+								<img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
 									alt='pokemon'
 									className='button-img'
 								>
@@ -83,10 +84,15 @@ export const MainView = (props) => {
 
 					</li>
 				})}
-				{selectedPokemon &&
-					<Modal onClose={() => setSelectedPokemon()} show={!!selectedPokemon} selectedPokemon={selectedPokemon} />
-				}
+
 			</div >
+			<div className='modal-container'>
+				{selectedPokemon &&
+					<Modal onClose={() => setSelectedPokemon()}
+						show={!!selectedPokemon}
+						selectedPokemon={selectedPokemon} />
+				}
+			</div>
 		</div>
 	);
 }
