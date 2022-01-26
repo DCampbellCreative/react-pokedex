@@ -3,7 +3,6 @@
 .header {
 	grid-row-start: 0;
 	grid-column-start: 4;
-	font-weight: 500;
 	font-size: 25px;	
 }
 
@@ -24,7 +23,12 @@
 	display: flex;
 	text-align: center;
 	justify-content: center;
-	/* border-bottom: 5px solid black; */
+}
+
+.sort-container {
+	grid-row-start: 2;
+	grid-column-start: 2;
+	margin-bottom: 25px;
 }
 
 .pokemon-list {
@@ -32,9 +36,11 @@
 	grid-column-start: 2;
 	grid-column-end: 4;
 	list-style: none;
-	text-align: left;
-	overflow: scroll;
-	max-height: 75vh;
+	text-align: center;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 65vh;
+	border: 1px solid black;
 }
 
 button {

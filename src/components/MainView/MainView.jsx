@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal } from '../Modal/Modal';
 import { getData } from '../api';
 import './MainView.css';
+import _, { sortBy } from 'lodash';
 
 export const MainView = (props) => {
 	const [pokemonList, setPokemonList] = useState([]);
@@ -9,9 +10,11 @@ export const MainView = (props) => {
 	const [selectedPokemon, setSelectedPokemon] = useState();
 	const [show, setShow] = useState(false);
 	const [searchTerm, setSearchTerm] = useState('');
+	const [sortedPokemonList, setSortedPokemonList] = useState([]);
 	const capitalizeFirstLetter = (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
+
 
 	// //gets list of pokemon from api
 	// useEffect(() => {
@@ -28,6 +31,7 @@ export const MainView = (props) => {
 			getData().then(({ results }) => {
 				setPokemonList(results)
 				setFilteredPokemonList(results)
+				// setSortedPokemonList(results)
 				console.log(filteredPokemonList)
 			})
 		}
@@ -47,6 +51,19 @@ export const MainView = (props) => {
 		console.log(value)
 	}
 
+	const sortArray = type => {
+		const types = {
+			name: 'name',
+		};
+		const sortProperty = types[type];
+		const res = [...filteredPokemonList].sort((a, b) => b[sortProperty] - a[sortProperty]);
+		console.log(res);
+		setSortedPokemonList(res);
+	};
+
+	// _.sortBy(pokemonList, [function (o) { return o.pokemon; }])
+
+
 	return (
 		<div className='container'>
 			<div className='header'>
@@ -57,6 +74,13 @@ export const MainView = (props) => {
 					<label htmlFor='search'>Search: </label>
 					<input id='search' type='text' onChange={(e) => updateFilter((e.target.value.toLowerCase()))} />
 				</div>
+			</div>
+			<div className='sort-container'>
+				<select className='sort-bar' onChange={(e) => sortArray(e.target.value)}>
+					<option value='name'>Sort A to Z</option>
+					<option value='height'>Sort By Height</option>
+					<option value='type'>Sort By Type</option>
+				</select>
 			</div>
 			<div className="pokemon-list">
 				{/* {pokemonList?.length > 0 && pokemonList?.filter((pokemon) => {
