@@ -2,27 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Modal } from '../Modal/Modal';
 import { getData } from '../api';
 import './MainView.css';
-import _, { sortBy } from 'lodash';
+import { orderBy } from 'lodash';
 
 export const MainView = (props) => {
 	const [pokemonList, setPokemonList] = useState([]);
 	const [filteredPokemonList, setFilteredPokemonList] = useState([]);
 	const [selectedPokemon, setSelectedPokemon] = useState();
 	const [show, setShow] = useState(false);
+	const [sorted, setSorted] = useState('id');
 	const [searchTerm, setSearchTerm] = useState('');
-	const [sortedPokemonList, setSortedPokemonList] = useState([]);
 	const capitalizeFirstLetter = (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
-
-
-	// //gets list of pokemon from api
-	// useEffect(() => {
-	// 	getData().then((pokemonList) => {
-	// 		setPokemonList(pokemonList.results)
-	// 		console.log(pokemonList)
-	// 	})
-	// }, []);
 
 	useEffect(() => {
 		// to prevent loading the list at each re-render
@@ -30,19 +21,13 @@ export const MainView = (props) => {
 
 			getData().then(({ results }) => {
 				setPokemonList(results)
-				setFilteredPokemonList(results)
-				// setSortedPokemonList(results)
+				// maps pokemon list by id
+				const res = results.map((p, i) => { return { ...p, id: i + 1 } })
+				setFilteredPokemonList(orderBy(res, sorted, 'asc'));
 				console.log(filteredPokemonList)
 			})
 		}
 	}, [])
-
-	//search for pokemon by name
-	// const handleSearch = (event) => {
-	// 	setSearchTerm(event.target.value);
-	// 	setFilteredPokemonList()
-	// 	console.log(searchTerm);
-	// }
 
 	const updateFilter = (value) => {
 		const res = pokemonList.filter(pokemon => pokemon.name.includes(value))
@@ -52,17 +37,13 @@ export const MainView = (props) => {
 	}
 
 	const sortArray = type => {
-		const types = {
-			name: 'name',
-		};
-		const sortProperty = types[type];
-		const res = [...filteredPokemonList].sort((a, b) => b[sortProperty] - a[sortProperty]);
-		console.log(res);
-		setSortedPokemonList(res);
+		let direction = 'asc';
+		let useName = type === 'descname' ? 'name' : type;
+		direction = type === 'descname' ? 'desc' : direction;
+		const res = orderBy(filteredPokemonList, [useName], [direction]);
+		setFilteredPokemonList(res);
+		setSorted(type);
 	};
-
-	// _.sortBy(pokemonList, [function (o) { return o.pokemon; }])
-
 
 	return (
 		<div className='container'>
@@ -76,19 +57,13 @@ export const MainView = (props) => {
 				</div>
 			</div>
 			<div className='sort-container'>
-				<select className='sort-bar' onChange={(e) => sortArray(e.target.value)}>
+				<select value={sorted} className='sort-bar' onChange={(e) => sortArray(e.target.value)}>
+					<option value='id'>Sort By #</option>
 					<option value='name'>Sort A to Z</option>
-					<option value='height'>Sort By Height</option>
-					<option value='type'>Sort By Type</option>
+					<option value='descname'>Sort Z to A</option>
 				</select>
 			</div>
 			<div className="pokemon-list">
-				{/* {pokemonList?.length > 0 && pokemonList?.filter((pokemon) => {
-					if (searchTerm === "") {
-						return pokemonList
-					} else if (pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-						return filteredPokemonList
-					} */}
 				{filteredPokemonList.map((pokemon) => {
 					const id = pokemon.url.slice(34).split('/')[0]
 					return <li key={pokemon.name}>
