@@ -19,9 +19,9 @@ export const Modal = ({ onClose, selectedPokemon, show }) => {
 		<div className='modal' onClick={onClose}>
 			<div className='modal-content' onClick={e => e.stopPropagation()}>
 				<div className='modal-header'>
-					<h3 className='modal-title'>
+					<h2 className='modal-title'>
 						{pokemon?.name}
-					</h3>
+					</h2>
 				</div>
 				<div className='modal-body'>
 					<div className='pokemon-img'>
