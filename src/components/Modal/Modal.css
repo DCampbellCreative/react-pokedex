@@ -80,3 +80,46 @@
   align-self: center;
   justify-self: center;
 }
+
+@media screen and (max-width: 768px) {
+  .modal {
+    border: 1px solid darkgray;
+    height: auto;
+    width: 100%;
+  }
+
+  .modal-body {
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .pokemon-sprite {
+    width: 65% !important;
+    height: auto !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+
+  .pokemon-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .pokemon-info {
+    font-size: 15px;
+  }
+
+  .modal-header,
+  .modal-footer {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .close-button {
+    width: auto;
+    margin-right: 0;
+    padding: 2%;
+  }
+}

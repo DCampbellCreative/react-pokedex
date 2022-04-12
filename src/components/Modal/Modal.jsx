@@ -25,8 +25,8 @@ export const Modal = ({ onClose, selectedPokemon, show }) => {
 				</div>
 				<div className='modal-body'>
 					<div className='pokemon-img'>
-						<img src={pokemon?.sprites.front_default} alt={pokemon?.name} style={{ width: '200px', height: '200px' }} />
-						<img src={pokemon?.sprites.back_default} alt={pokemon?.name} style={{ width: '200px', height: '200px' }} />
+						<img className='pokemon-sprite' src={pokemon?.sprites.front_default} alt={pokemon?.name} style={{ width: '200px', height: '200px' }} />
+						<img className='pokemon-sprite' src={pokemon?.sprites.back_default} alt={pokemon?.name} style={{ width: '200px', height: '200px' }} />
 					</div>
 					<div className='pokemon-info'>
 						<p>Height: {pokemon?.height}</p>

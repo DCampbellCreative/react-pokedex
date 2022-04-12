@@ -55,11 +55,11 @@
 }
 
 .pokemon-list::-webkit-scrollbar {
-  background-color: rgb(103, 102, 102);
+  background-color: rgb(255, 255, 255);
 }
 
 .pokemon-list::-webkit-scrollbar-thumb {
-  background-color: lightgray;
+  background-color: darkgrey;
 }
 
 .list-button {
@@ -101,4 +101,46 @@
 .error {
   color: red;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-bar {
+    font-size: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
+  }
+  #search {
+    border: 1px solid darkgrey;
+  }
+
+  .sort-container {
+    font-size: 10px;
+    /* margin-bottom: 25px; */
+  }
+  .sort-bar {
+    border: 1px solid darkgrey;
+  }
+
+  .list-button {
+    height: auto;
+  }
+
+  .button-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-text {
+    font-size: 10px;
+    margin: 0%;
+  }
+
+  .button-img {
+    width: 100%;
+  }
+
+  .select {
+    font-size: 12px;
+  }
 }

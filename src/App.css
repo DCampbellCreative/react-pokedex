@@ -30,3 +30,11 @@ body {
   width: 100%;
   overflow: hidden;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr repeat(6, minmax(25px, 50px)) 1fr;
+    grid-gap: 1.5rem;
+  }
+}
