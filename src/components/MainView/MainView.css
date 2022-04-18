@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  text-transform: uppercase;
 }
 
 .search-container {
@@ -25,6 +26,7 @@
   text-align: center;
   justify-content: flex-end;
 }
+
 #search {
   border: 2px solid darkgrey;
 }
@@ -77,6 +79,7 @@
 
 .list-button:hover {
   cursor: pointer;
+  opacity: 0.85;
 }
 
 .button-content {
@@ -101,6 +104,11 @@
 .error {
   color: red;
   font-size: 20px;
+}
+
+.selected {
+  background-color: cadetblue;
+  border: 2px solid gray;
 }
 
 @media screen and (max-width: 768px) {

@@ -32,7 +32,7 @@ export const MainView = (props) => {
 		const res = pokemonList.filter(pokemon => pokemon.name.includes(value))
 		setSearchTerm(value)
 		setFilteredPokemonList(res)
-
+		setSelectedPokemon()
 		console.log(value)
 	}
 
@@ -43,7 +43,7 @@ export const MainView = (props) => {
 		const res = orderBy(filteredPokemonList, [useName], [direction]);
 		setFilteredPokemonList(res);
 		setSorted(type);
-		setShow(false);
+		setSelectedPokemon()
 	};
 
 	return (
@@ -56,17 +56,20 @@ export const MainView = (props) => {
 			<div className='search-container'>
 				<div className='search-bar'>
 					<label htmlFor='search'>Search: </label>
-					<input id='search' type='text' errorText='No Results' onChange={(e) => updateFilter((e.target.value.toLowerCase()))} />
+					<input id='search' type='text' onChange={(e) => updateFilter((e.target.value.toLowerCase()))} />
 				</div>
 			</div>
 
-			<div className='sort-container'>
+			<div className='sort-container' >
 				<select value={sorted} className='sort-bar' onChange={(e) => sortArray(e.target.value)}>
-					<option value='id'>Sort By #</option>
+					<option value='id'>Sort By ID</option>
 					<option value='name'>Sort A to Z</option>
 					<option value='descname'>Sort Z to A</option>
 				</select>
 			</div>
+
+
+			{/* className={selectedPokemon ? "selected" : "list-button"} */}
 
 			{filteredPokemonList.length > 0 ?
 				(
@@ -74,7 +77,7 @@ export const MainView = (props) => {
 						{filteredPokemonList.map((pokemon) => {
 							const id = pokemon.url.slice(34).split('/')[0]
 							return <li key={pokemon.name}>
-								<button className='list-button' onClick={() => {
+								<button className={selectedPokemon === pokemon ? "list-button selected" : "list-button"} onClick={() => {
 									setShow(true)
 									setSelectedPokemon(pokemon)
 								}}>
@@ -91,7 +94,7 @@ export const MainView = (props) => {
 						})}
 					</div >) : (<div className='pokemon-list error'>No Results</div>)}
 
-			<h1 className='modal-container select'>Scroll, Search, or Sort <br />Select a Pokémon</h1>
+			<h1 className='modal-container select-text'>Select a Pokémon</h1>
 			<div className='modal-container'>
 				{selectedPokemon &&
 					<Modal onClose={() => setSelectedPokemon()}

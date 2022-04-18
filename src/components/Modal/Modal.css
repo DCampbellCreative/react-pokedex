@@ -63,6 +63,7 @@
   flex-shrink: 1;
   flex-wrap: nowrap;
   flex-basis: 0;
+  align-content: center;
 }
 
 .close-button {
@@ -75,10 +76,102 @@
   cursor: pointer;
 }
 
-.select {
+.select-text {
   display: flex;
   align-self: center;
   justify-self: center;
+  align-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: baseline;
+}
+
+/* TYPES */
+
+.type-text {
+  margin: 1%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 25%;
+  color: white;
+  justify-self: center;
+  align-self: center;
+}
+
+.grass {
+  background-color: rgb(116, 172, 49);
+}
+
+.poison {
+  background-color: rgb(129, 0, 128);
+}
+
+.fire {
+  background-color: rgb(229, 66, 16);
+}
+
+.water {
+  background-color: rgb(31, 98, 172);
+}
+
+.bug {
+  background-color: chartreuse;
+}
+
+.normal {
+  background-color: whitesmoke;
+}
+
+.flying {
+  background-color: cornflowerblue;
+}
+
+.electric {
+  background-color: yellow;
+}
+
+.ground {
+  background-color: rgb(152, 84, 0);
+}
+
+.rock {
+  background-color: rgb(79, 45, 4);
+}
+
+.ghost {
+  background-color: blueviolet;
+}
+
+.psychic {
+  background-color: rgb(147, 23, 189);
+}
+
+.fairy {
+  background-color: rgb(240, 41, 187);
+}
+
+.dark {
+  background-color: rgb(49, 49, 49);
+}
+
+.steel {
+  background-color: dimgray;
+}
+
+.fighting {
+  background-color: maroon;
+}
+
+.ice {
+  background-color: aliceblue;
+}
+
+.dragon {
+  background-color: mediumpurple;
 }
 
 @media screen and (max-width: 768px) {

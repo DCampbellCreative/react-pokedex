@@ -4,16 +4,24 @@ import { getDetails } from '../api';
 
 export const Modal = ({ onClose, selectedPokemon, show }) => {
 	const [pokemon, setPokemon] = useState();
+	const [color, setColor] = useState([]);
 
 	// gets details for each pokemon when selected
 	useEffect(() => {
 		if (selectedPokemon) {
 			getDetails(selectedPokemon.url).then((data) => {
 				setPokemon(data);
-				console.log(data);
+				// console.log(data);
+				// document.body.classList.add(type.type.name)
+				let stateColor = data?.types.map((color) => color.type.name)
+				setColor(stateColor)
+				console.log(color[0])
 			})
+			document.body.classList.add(color[0])
 		}
 	}, [selectedPokemon]);
+
+	// document.body.classList.add(color[0])
 
 	return (
 		<div className='modal' onClick={onClose}>
@@ -30,7 +38,7 @@ export const Modal = ({ onClose, selectedPokemon, show }) => {
 					</div>
 					<div className='pokemon-info'>
 						<p>Height: {pokemon?.height}</p>
-						<p>Type: {pokemon?.types.map((type) => type.type.name).join(", ")}</p>
+						<div className='center'>Type: {pokemon?.types.map((type) => { return <p className={`type-text ${type.type.name}`}>{type.type.name}</p> })}</div>
 					</div>
 				</div>
 				<div className='modal-footer'>
