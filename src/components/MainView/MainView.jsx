@@ -69,8 +69,6 @@ export const MainView = (props) => {
 			</div>
 
 
-			{/* className={selectedPokemon ? "selected" : "list-button"} */}
-
 			{filteredPokemonList.length > 0 ?
 				(
 					<div className="pokemon-list">
