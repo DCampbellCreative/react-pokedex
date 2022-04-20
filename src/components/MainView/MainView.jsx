@@ -32,8 +32,9 @@ export const MainView = (props) => {
 		const res = pokemonList.filter(pokemon => pokemon.name.includes(value))
 		setSearchTerm(value)
 		setFilteredPokemonList(res)
-		setSelectedPokemon()
-		console.log(value)
+		if (!filteredPokemonList.includes(selectedPokemon)) {
+			setSelectedPokemon()
+		}
 	}
 
 	const sortArray = type => {
@@ -43,12 +44,11 @@ export const MainView = (props) => {
 		const res = orderBy(filteredPokemonList, [useName], [direction]);
 		setFilteredPokemonList(res);
 		setSorted(type);
-		setSelectedPokemon()
 	};
 
 	return (
 		<div className='container'>
-			<div className='background'></div>
+			<div className='background'><div className='grid'></div></div>
 			<div className='header'>
 				<h1 className='title'>Pokédex</h1>
 			</div>

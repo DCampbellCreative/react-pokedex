@@ -106,20 +106,50 @@
   background-color: rgb(116, 172, 49);
 }
 
+.grass-image {
+  background-image: url("../Icons/grass.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .poison {
   background-color: rgb(129, 0, 128);
+}
+
+.poison-image {
+  background-image: url("../Icons/poison.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 .fire {
   background-color: rgb(229, 66, 16);
 }
 
+.fire-image {
+  background-image: url("../Icons/fire.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .water {
   background-color: rgb(31, 98, 172);
 }
 
+.water-image {
+  background-image: url("../Icons/water.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .bug {
   background-color: rgb(105, 212, 49);
+}
+
+.bug-image {
+  background-image: url("../Icons/bug.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 .normal {
@@ -127,54 +157,132 @@
   color: black;
 }
 
+.normal-image {
+  background-image: url("../Icons/normal.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .flying {
   background-color: cornflowerblue;
 }
 
+.flying-image {
+  background-image: url("../Icons/flying.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .electric {
-  background-color: yellow;
+  background-color: rgb(246 229 82);
   color: black;
+}
+
+.electric-image {
+  background-image: url("../Icons/electric.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 .ground {
   background-color: rgb(152, 84, 0);
 }
 
+.ground-image {
+  background-image: url("../Icons/ground.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .rock {
   background-color: rgb(103, 73, 36);
+}
+
+.rock-image {
+  background-image: url("../Icons/rock.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 .ghost {
   background-color: blueviolet;
 }
 
+.ghost-image {
+  background-image: url("../Icons/ghost.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .psychic {
   background-color: rgb(147, 23, 189);
+}
+
+.psychic-image {
+  background-image: url("../Icons/psychic.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 .fairy {
   background-color: rgb(246, 123, 148);
 }
 
+.fairy-image {
+  background-image: url("../Icons/fairy.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .dark {
   background-color: rgb(49, 49, 49);
+}
+
+.dark-image {
+  background-image: url("../Icons/dark.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 .steel {
   background-color: rgb(140, 165, 199);
 }
 
+.steel-image {
+  background-image: url("../Icons/steel.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .fighting {
   background-color: maroon;
 }
 
+.fighting-image {
+  background-image: url("../Icons/fighting.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+}
+
 .ice {
-  background-color: aliceblue;
+  background-color: rgb(150, 206, 255);
   color: black;
+}
+
+.ice-image {
+  background-image: url("../Icons/ice.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 .dragon {
   background-color: mediumpurple;
+}
+
+.dragon-image {
+  background-image: url("../Icons/dragon.svg");
+  background-repeat: repeat;
+  background-size: 40px;
 }
 
 @media screen and (max-width: 768px) {
