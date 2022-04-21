@@ -48,12 +48,13 @@ export const MainView = (props) => {
 
 	return (
 		<div className='container'>
-			<div className='background'><div className='grid'></div></div>
+			<div className='background-grid'><div className='grid'></div></div>
+			<div className='background-title'><div className='grid'></div></div>
+			<div className='background-border'></div>
+			<div className='background-border-2'></div>
 			<div className='header'>
 				<h1 className='title'>Pokédex</h1>
 			</div>
-
-
 
 			<div className='search-container'>
 				<div className='search-bar'>

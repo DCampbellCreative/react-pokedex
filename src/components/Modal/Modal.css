@@ -315,6 +315,10 @@
     font-size: 15px;
   }
 
+  .type-text {
+    font-size: 10px;
+  }
+
   .modal-header,
   .modal-footer {
     justify-content: center;

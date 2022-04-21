@@ -3,8 +3,9 @@
 html,
 body {
   width: auto !important;
-  overflow-x: hidden !important;
+  overflow: hidden !important;
   font-family: "Source Code Pro", monospace;
+  font-size: 100%;
 }
 
 .container {
@@ -13,23 +14,61 @@ body {
   grid-gap: 1.5rem;
 }
 
+.background-title {
+  position: absolute;
+  z-index: -1;
+  background-color: rgb(210, 210, 210);
+  height: 7%;
+  width: 35%;
+  justify-self: center;
+  margin-top: 29px;
+  box-shadow: 2px 2px 5px black;
+  transform: skewX(-15deg);
+}
+
+.background-border {
+  height: 6px;
+  background-color: rgb(210, 210, 210);
+  border-top: 2px solid dimgray;
+  border-bottom: 2px solid dimgray;
+  width: 100%;
+  position: absolute;
+  margin-top: 50px;
+  z-index: -2;
+}
+
+.background-border-2 {
+  height: 6px;
+  background-color: rgb(210, 210, 210);
+  border-top: 2px solid dimgray;
+  border-bottom: 2px solid dimgray;
+  width: 100%;
+  position: absolute;
+  margin-top: 65px;
+  z-index: -2;
+}
+
 .background-type {
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -2;
+  z-index: -3;
+  box-shadow: 5% black;
 }
 
-.background {
+.background-grid {
   background-color: rgb(210, 210, 210);
-  transform: skewY(7deg);
+  /* transform: skewY(7deg); */
+  /* transform: skewX(-15deg); */
   position: absolute;
   place-self: center;
   z-index: -1;
   height: 75vh;
-  width: 100%;
+  width: 65%;
+  margin-top: 145px;
+  box-shadow: 2px 2px 5px black;
 }
 
 .grid {
@@ -40,10 +79,29 @@ body {
   background-size: 15px 15px;
 }
 
+@media screen and (max-width: 1185px) {
+  .background-grid {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .container {
     display: grid;
     grid-template-columns: 1fr repeat(6, minmax(25px, 50px)) 1fr;
     grid-gap: 1.5rem;
+  }
+
+  .background-title {
+    width: 55%;
+  }
+
+  .background-grid {
+    transform: none;
+    position: absolute;
+    place-self: none;
+    margin-top: 145px;
+    z-index: -1;
+    height: 75vh;
   }
 }

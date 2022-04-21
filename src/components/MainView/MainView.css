@@ -11,9 +11,13 @@
   justify-content: center;
   width: 100%;
   text-transform: uppercase;
-  border: 2px solid gray;
-  background-color: white;
+  /* border: 2px solid gray; */
+  /* background-color: white; */
   transform: skewX(-15deg);
+}
+
+h1 {
+  font: 3rem;
 }
 
 .search-container {
@@ -112,6 +116,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  /* .title {
+    width: 100%;
+  } */
+
   .search-bar {
     font-size: 10px;
     display: flex;
