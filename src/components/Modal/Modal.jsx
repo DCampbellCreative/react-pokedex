@@ -12,11 +12,6 @@ export const Modal = ({ onClose, selectedPokemon, show }) => {
 		if (selectedPokemon) {
 			getDetails(selectedPokemon.url).then((data) => {
 				setPokemon(data);
-				// console.log(data);
-				// document.body.classList.add(type.type.name)
-				// let stateColor = data?.types.map((color) => color.type.name)
-				// setColor(stateColor)
-				// console.log(color[0])
 				const nextBackground = data?.types?.[0]?.type?.name
 				if (nextBackground) setBackground(nextBackground)
 				console.log(nextBackground)

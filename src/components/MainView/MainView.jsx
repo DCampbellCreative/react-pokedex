@@ -53,6 +53,8 @@ export const MainView = (props) => {
 				<h1 className='title'>Pokédex</h1>
 			</div>
 
+
+
 			<div className='search-container'>
 				<div className='search-bar'>
 					<label htmlFor='search'>Search: </label>

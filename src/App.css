@@ -4,9 +4,6 @@ html,
 body {
   width: auto !important;
   overflow-x: hidden !important;
-}
-
-body {
   font-family: "Source Code Pro", monospace;
 }
 
@@ -29,12 +26,10 @@ body {
   background-color: rgb(210, 210, 210);
   transform: skewY(7deg);
   position: absolute;
-  top: 0;
-  left: 0;
+  place-self: center;
   z-index: -1;
-  height: 85vh;
+  height: 75vh;
   width: 100%;
-  overflow: hidden;
 }
 
 .grid {
@@ -42,7 +37,7 @@ body {
   width: 100%;
   background-image: repeating-linear-gradient(#ccc 0 2px, transparent 1px 100%),
     repeating-linear-gradient(90deg, #ccc 0 2px, transparent 1px 100%);
-  background-size: 40px 40px;
+  background-size: 15px 15px;
 }
 
 @media screen and (max-width: 768px) {

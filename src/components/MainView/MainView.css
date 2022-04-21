@@ -11,6 +11,9 @@
   justify-content: center;
   width: 100%;
   text-transform: uppercase;
+  border: 2px solid gray;
+  background-color: white;
+  transform: skewX(-15deg);
 }
 
 .search-container {
