@@ -4,6 +4,8 @@
 
 Loads and displays a list of Pokémon from pokeapi.co and displays their names and sprites.
 
+Backgrounds created using duiker101's Github repo pokemon-type-svg-icons.
+
 The list is searchable by name, and sortable by number or name ascending and descending.
 
 Clicking on a list item loads a modal showing front and back sprites, height, and types of desired Pokémon.</p>

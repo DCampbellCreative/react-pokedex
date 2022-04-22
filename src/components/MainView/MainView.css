@@ -2,22 +2,16 @@
   grid-row-start: 0;
   grid-column-start: 4;
   grid-column-end: 6;
-  font-size: 25px;
 }
 
 .title {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  font-size: 3rem;
+  margin-top: 33px;
   text-transform: uppercase;
-  /* border: 2px solid gray; */
-  /* background-color: white; */
-  transform: skewX(-15deg);
-}
-
-h1 {
-  font: 3rem;
+  transform: none;
 }
 
 .search-container {
@@ -42,6 +36,7 @@ h1 {
   grid-column-start: 2;
   font-size: 20px;
 }
+
 .sort-bar {
   border: 2px solid darkgrey;
 }
@@ -79,6 +74,7 @@ h1 {
   justify-content: center;
   border: none;
   border-radius: 10px;
+  border: 2px solid gray;
   background-color: white;
 }
 
@@ -116,12 +112,19 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-  /* .title {
-    width: 100%;
-  } */
+  .header {
+    grid-row-start: 0;
+    grid-column-start: 3;
+    grid-column-end: 7;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-top: 33px;
+  }
 
   .search-bar {
-    font-size: 10px;
+    font-size: 15px;
     display: flex;
     text-align: center;
     justify-content: flex-end;
@@ -129,10 +132,11 @@ h1 {
 
   #search {
     border: 1px solid darkgrey;
+    width: 100%;
   }
 
   .sort-container {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .sort-bar {
@@ -141,6 +145,7 @@ h1 {
 
   .list-button {
     height: auto;
+    border: 1px solid gray;
   }
 
   .button-content {
