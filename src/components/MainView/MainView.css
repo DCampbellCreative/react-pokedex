@@ -99,6 +99,7 @@
 .button-img {
   width: 25%;
   height: 25%;
+  max-width: 53px;
 }
 
 .error {

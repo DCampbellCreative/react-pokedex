@@ -11,7 +11,8 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr repeat(6, minmax(50px, 100px)) 1fr;
+  /* grid-template-columns: 1fr repeat(6, minmax(50px, 100px)) 1fr; */
+  grid-template-columns: 2fr repeat(6, 1fr) 2fr;
   grid-gap: 1.5rem;
 }
 
@@ -35,12 +36,10 @@ body {
 
 .background-grid {
   background-color: rgb(210, 210, 210);
-  /* transform: skewY(7deg); */
-  /* transform: skewX(-15deg); */
   position: absolute;
   place-self: center;
   z-index: -1;
-  height: 75vh;
+  height: 78vh;
   width: 65%;
   margin-top: 145px;
   box-shadow: 2px 2px 5px black;

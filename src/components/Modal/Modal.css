@@ -10,6 +10,8 @@
   border: 2px solid darkgray;
   height: 499px;
   width: 100%;
+  max-width: 499px;
+  justify-self: center;
 }
 
 .modal-content {
@@ -56,6 +58,10 @@
 
 .pokemon-img {
   width: 100%;
+}
+
+.pokemon-sprite {
+  width: 10rem;
 }
 
 .pokemon-info {
@@ -299,8 +305,8 @@
   }
 
   .pokemon-sprite {
-    width: 65% !important;
-    height: auto !important;
+    width: 7rem !important;
+    /* height: auto !important; */
     justify-self: center !important;
     align-self: center !important;
   }
