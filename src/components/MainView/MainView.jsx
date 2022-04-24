@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from '../Modal/Modal';
+import { Search } from '../Search/Search';
+import { Sort } from '../Sort/Sort';
+import { PokemonList } from '../PokemonList/PokemonList';
 import { getData } from '../api';
 import './MainView.css';
-import { orderBy } from 'lodash';
+import { orderBy, update } from 'lodash';
 
 export const MainView = (props) => {
 	const [pokemonList, setPokemonList] = useState([]);
@@ -48,6 +51,7 @@ export const MainView = (props) => {
 
 	return (
 		<div className='container'>
+			<div className='original-background'></div>
 			<div className='background-grid'><div className='grid'></div></div>
 
 			<div className='header'>
@@ -56,44 +60,9 @@ export const MainView = (props) => {
 				</div>
 			</div>
 
-			<div className='search-container'>
-				<div className='search-bar'>
-					<label htmlFor='search'>Search: </label>
-					<input id='search' type='text' onChange={(e) => updateFilter((e.target.value.toLowerCase()))} />
-				</div>
-			</div>
-
-			<div className='sort-container' >
-				<select value={sorted} className='sort-bar' onChange={(e) => sortArray(e.target.value)}>
-					<option value='id'>Sort By ID</option>
-					<option value='name'>Sort A to Z</option>
-					<option value='descname'>Sort Z to A</option>
-				</select>
-			</div>
-
-
-			{filteredPokemonList.length > 0 ?
-				(
-					<div className="pokemon-list">
-						{filteredPokemonList.map((pokemon) => {
-							const id = pokemon.url.slice(34).split('/')[0]
-							return <li key={pokemon.name}>
-								<button className={selectedPokemon === pokemon ? "list-button selected" : "list-button"} onClick={() => {
-									setShow(true)
-									setSelectedPokemon(pokemon)
-								}}>
-									<div className='button-content'>
-										<p className='button-text'>{id}: {capitalizeFirstLetter(pokemon.name)}</p>
-										<img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-											alt={`${pokemon.name}`}
-											className='button-img'
-										>
-										</img>
-									</div>
-								</button>
-							</li>
-						})}
-					</div >) : (<div className='pokemon-list error'>No Results</div>)}
+			<Search updateFilter={updateFilter} />
+			<Sort sorted={sorted} sortArray={sortArray} />
+			<PokemonList filteredPokemonList={filteredPokemonList} selectedPokemon={selectedPokemon} setShow={setShow} setSelectedPokemon={setSelectedPokemon} capitalizeFirstLetter={capitalizeFirstLetter} />
 
 			<h1 className='modal-container select-text'>Select a Pokémon</h1>
 			<div className='modal-container'>

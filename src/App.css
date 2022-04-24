@@ -16,12 +16,21 @@ body {
   grid-gap: 1.5rem;
 }
 
-.background-title {
-  z-index: -1;
-  background-color: rgb(210, 210, 210);
-  justify-self: center;
-  box-shadow: 2px 2px 5px black;
-  transform: skewX(-15deg);
+.original-background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -4;
+  /* background-color: goldenrod; */
+  background: repeating-linear-gradient(
+    -45deg,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255) 5px,
+    rgb(235, 235, 235) 5px,
+    rgb(235, 235, 235) 16px
+  );
 }
 
 .background-type {
@@ -54,11 +63,19 @@ body {
 }
 
 .grid-2 {
-  height: auto;
-  width: auto;
+  align-self: center;
   background-image: repeating-linear-gradient(#ccc 0 2px, transparent 1px 100%),
     repeating-linear-gradient(90deg, #ccc 0 2px, transparent 1px 100%);
   background-size: 15px 15px;
+}
+
+.background-title {
+  z-index: -1;
+  background-color: rgb(210, 210, 210);
+  justify-self: center;
+  box-shadow: 2px 2px 5px black;
+  transform: skewX(-15deg);
+  width: 100%;
 }
 
 @media screen and (max-width: 1185px) {
@@ -74,9 +91,9 @@ body {
     grid-gap: 1.5rem;
   }
 
-  /* .background-title {
-    width: 55%;
-  } */
+  .background-title {
+    width: auto;
+  }
 
   .background-grid {
     transform: none;
