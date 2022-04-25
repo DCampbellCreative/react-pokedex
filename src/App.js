@@ -1,8 +1,8 @@
-import React from 'react';
-import 'normalize.css';
-import './App.css';
+import React from "react";
+// import 'normalize.css';
+import "./App.css";
 
-import { MainView } from './components/MainView/MainView'
+import { MainView } from "./components/MainView/MainView";
 
 function App() {
   return (

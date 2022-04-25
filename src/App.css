@@ -2,7 +2,6 @@
 
 html,
 body {
-  /* width: auto !important; */
   overflow: hidden !important;
   font-family: "Source Code Pro", monospace;
   font-size: 100%;
@@ -27,7 +26,6 @@ body {
   top: 0;
   left: 0;
   z-index: -4;
-  /* background-color: goldenrod; */
   background: repeating-linear-gradient(
     -45deg,
     rgb(255, 255, 255),
@@ -49,12 +47,8 @@ body {
 
 .background-grid {
   background-color: rgb(210, 210, 210);
-  /* position: absolute;
-  place-self: center; */
   grid-area: 2 / 2 / 4 / 8;
   z-index: -1;
-  /* height: 78vh;
-  width: 65%; */
   margin: -25px;
   box-shadow: 2px 2px 5px black;
 }
@@ -68,25 +62,9 @@ body {
 }
 
 .grid-2 {
-  /* align-self: center; */
   background-image: repeating-linear-gradient(#ccc 0 2px, transparent 1px 100%),
     repeating-linear-gradient(90deg, #ccc 0 2px, transparent 1px 100%);
   background-size: 15px 15px;
-}
-
-.background-title {
-  z-index: -2;
-  background-color: rgb(210, 210, 210);
-  justify-self: center;
-  box-shadow: 2px 2px 5px black;
-  transform: skewX(-15deg);
-  width: 100%;
-}
-
-@media screen and (max-width: 1185px) {
-  .background-grid {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -96,16 +74,7 @@ body {
     grid-gap: 1.5rem;
   }
 
-  .background-title {
+  /* .background-title {
     width: auto;
-  }
-
-  .background-grid {
-    transform: none;
-    position: absolute;
-    place-self: none;
-    margin-top: 145px;
-    z-index: -1;
-    height: 75vh;
-  }
+  } */
 }
