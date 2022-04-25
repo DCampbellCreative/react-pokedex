@@ -20,7 +20,7 @@
   width: 100%;
   background-color: white;
   text-transform: capitalize;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .modal-header {
@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #eee;
-  height: 10%;
+  height: 15%;
 }
 
 .modal-footer {
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: flex-end;
   border-top: 1px solid #eee;
-  height: 10%;
+  height: 15%;
 }
 
 .modal-title {
@@ -49,7 +49,7 @@
   display: flex;
   /* flex-shrink: 1; */
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: nowrap;
   flex-basis: 0;
   width: 100%;
@@ -63,7 +63,7 @@
 
 .pokemon-sprite {
   width: 12rem;
-  margin: -5%;
+  margin-bottom: -5%;
 }
 
 .pokemon-info {
@@ -97,6 +97,11 @@
   flex-direction: column;
   justify-content: center;
   align-content: baseline;
+}
+
+.pokemon-types {
+  display: flex;
+  flex-direction: row;
 }
 
 /* TYPES */
@@ -294,13 +299,11 @@
   background-size: 40px;
 }
 
-/* @media screen and (max-width: 875px) {
-  .pokemon-img {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+@media screen and (max-width: 947px) {
+  .pokemon-sprite {
+    width: 10rem;
   }
-} */
+}
 
 @media screen and (max-width: 768px) {
   .modal {
@@ -316,7 +319,7 @@
   }
 
   .pokemon-sprite {
-    width: 7rem !important;
+    width: 8rem !important;
     /* height: auto !important; */
     justify-self: center !important;
     align-self: center !important;

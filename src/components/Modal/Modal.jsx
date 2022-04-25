@@ -39,7 +39,8 @@ export const Modal = ({ onClose, selectedPokemon, show }) => {
 						</div>
 						<div className='pokemon-info'>
 							<p>Height: {pokemon?.height}</p>
-							<div className='center'>Type: {pokemon?.types.map((type) => { return <p className={`type-text ${type.type.name}`}>{type.type.name}</p> })}</div>
+							<p>Type:</p>
+							<div className='center pokemon-types'> {pokemon?.types.map((type) => { return <p key={type.type.name} className={`type-text ${type.type.name}`}>{type.type.name}</p> })}</div>
 						</div>
 					</div>
 					<div className='modal-footer'>
