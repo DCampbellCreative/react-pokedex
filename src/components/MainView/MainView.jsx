@@ -51,7 +51,7 @@ export const MainView = (props) => {
 
 	return (
 		<div className='container'>
-			<div className='original-background'></div>
+			<div className='original-background' />
 			<div className='background-grid'><div className='grid'></div></div>
 
 			<div className='header'>

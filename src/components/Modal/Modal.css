@@ -8,9 +8,9 @@
 .modal {
   display: flex;
   border: 2px solid darkgray;
-  height: 499px;
+  height: 550px;
   width: 100%;
-  max-width: 499px;
+  max-width: 600px;
   justify-self: center;
 }
 

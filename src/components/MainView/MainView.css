@@ -34,6 +34,7 @@
 .sort-container {
   grid-row-start: 2;
   grid-column-start: 2;
+  grid-column-end: 3;
   font-size: 20px;
 }
 
